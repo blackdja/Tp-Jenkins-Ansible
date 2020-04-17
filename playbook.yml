@@ -1,0 +1,8 @@
+---
+    
+# tasks file for python
+
+- name: Installation npm
+  apt: name='npm' state=latest
+
+...
