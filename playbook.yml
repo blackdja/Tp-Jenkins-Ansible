@@ -1,8 +1,28 @@
 ---
     
 # tasks file for python
+- name: Installation nodejs
+  apt: name='node' state=latest
 
 - name: Installation npm
   apt: name='npm' state=latest
 
+- name: Installation git
+  apt: name='git' state=latest
+
+- name: Espace de travailler
+  file:
+    path: /home/server/TP
+    state: directory
+
+- name: Telecharger le package app
+  git:
+    repo: https://github.com/blackdja/Tp-Jenkins-Ansible
+    dest: /home/server/TP
+    
+- name: Lancement app
+  command:
+    cmd: cd /home/server/TP/Tp-Jenkins-Ansible
+    cmd: npm i
+    cmd: npm start
 ...
